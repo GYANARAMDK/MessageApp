@@ -141,7 +141,7 @@ export default function Posts() {
                 <div>
                   <p className="font-semibold">{item.author.name}</p>
                   <p className="text-sm text-gray-500">
-                    {item.createdAt?.split("T")[0] || "first day"}
+                    {item.createdAt?.split("T")[0] || ""}
                   </p>
                 </div>
               </div>

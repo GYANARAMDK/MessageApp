@@ -4,6 +4,7 @@ import { FaPaperPlane } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost, setselectedpost } from "../../Redux/PostSlice";
+import { NavLink } from "react-router-dom";
 export default function Comments({ open, setOpen }) {
   const Dispatch = useDispatch();
   const token = useSelector((state) => state.Outh.token);
@@ -69,11 +70,13 @@ export default function Comments({ open, setOpen }) {
                 {selectedpost.comments.map((comment) => (
                   <div key={comment._id} className="flex  mt-3 ">
                     {/* Avatar */}
+                    <NavLink to={`/profile/${comment.author._id}`}>
                     <img
                       src={comment.author.profilepicture}
                       alt="Profile"
                       className="w-12 h-12 rounded-full object-cover mr-4"
                     />
+                     </NavLink>
                     <div>
                       <span>
                         <p className="font-semibold ">{comment.author.name} </p>

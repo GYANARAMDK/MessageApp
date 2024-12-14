@@ -33,7 +33,6 @@ export default function LeftSideBar() {
   const Dispatch = useDispatch(); //  used for dispatch actions of redux store
   const Navigate = useNavigate(); //  used for navigation betweens routes
   const [isLoading, setIsLoading] = useState(false); //  used for waiting inhance user experience
-
   const LogoutHandle = async () => {
     try {
       setIsLoading(true);
@@ -62,7 +61,7 @@ export default function LeftSideBar() {
         setopenpost(true);
         break;
       case "Profile":
-        if (user?.id) {
+        if (user?._id) {
           Navigate(`/Profile/${user._id}`);
         } else {
           alert("User not logged in!");

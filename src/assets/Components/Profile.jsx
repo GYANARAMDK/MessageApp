@@ -7,16 +7,18 @@ import { NavLink, useParams } from "react-router-dom";
 import { setprofile } from "../../Redux/OuthSlice";
 import { FaCog } from "react-icons/fa";
 export default function Profile() {
-  const token = useSelector(state=>state.Outh.token)
-   const params = useParams();
-  const userid = params.id;
+  const token = useSelector((state) => state.Outh.token);
+  const profile = useSelector((state) => state.Outh.profile || {});
+  const user = useSelector((state) => state.Outh.user || {});
   const Dispatch = useDispatch();
-  const profile = useSelector((state) => state.Outh.profile||{});
-  const user = useSelector((state) => state.Outh.user ||{});
+  const params = useParams();
+  
+  const userid = params.id;
+  const isloggedinuser = user?.id === profile?._id;
 
-  const isloggedinuser = (user?.id===profile?._id);
   const [activetab, setactivetab] = useState("Posts");
   const displayedpost = activetab === "Posts" ? profile.post : profile.bookmark;
+
   const isfoolowing = true;
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export default function Profile() {
             withCredentials: true,
           }
         );
-        console.log("hello")
+        console.log("hello");
         //  alert(response.data.message);
         if (response.status === 200)
           // console.log(response.data.user)
@@ -65,7 +67,7 @@ export default function Profile() {
             <p className="text-xl font-bold">{profile.name}</p>
             {isloggedinuser ? (
               <>
-                <NavLink to='/account/edit'>
+                <NavLink to="/account/edit">
                   <button className="px-1 rounded  font-semiboldcursor-pointer text-lg bg-[#0095f6]">
                     Edit profile
                   </button>

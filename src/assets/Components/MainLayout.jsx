@@ -10,7 +10,7 @@ export default function MainLayout() {
   const token = useSelector((state) => state.Outh.token);
   useEffect(() => {
     if (!token) Navigate("/Login");
-  }, [token]);
+  }, [token,Navigate]);
   return (
     <>
       {" "}
