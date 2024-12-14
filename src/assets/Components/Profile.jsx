@@ -12,9 +12,9 @@ export default function Profile() {
   const user = useSelector((state) => state.Outh.user || {});
   const Dispatch = useDispatch();
   const params = useParams();
-  
+
   const userid = params.id;
-  const isloggedinuser = user?.id === profile?._id;
+  const isloggedinuser = user?._id === profile?._id;
 
   const [activetab, setactivetab] = useState("Posts");
   const displayedpost = activetab === "Posts" ? profile.post : profile.bookmark;
@@ -34,13 +34,7 @@ export default function Profile() {
             withCredentials: true,
           }
         );
-        console.log("hello");
-        //  alert(response.data.message);
-        if (response.status === 200)
-          // console.log(response.data.user)
-          Dispatch(setprofile(response.data.user));
-        // console.log(response.data.user.post);
-        // console.log(profile);
+        if (response.status === 200) Dispatch(setprofile(response.data.user));
       } catch (error) {
         console.log(error);
         if (error.response) alert(error.response.data.message);
