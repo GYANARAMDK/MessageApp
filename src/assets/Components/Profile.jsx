@@ -90,21 +90,21 @@ export default function Profile() {
             <p>
               {" "}
               <span className=" text-lg font-semibold ">
-                {profile.post.length}
+                {profile?.post?.length || 0}
               </span>{" "}
               Post{" "}
             </p>
             <p>
               {" "}
               <span className="  cursor-pointer text-lg font-semibold ">
-                {profile.follower.length}
+                {profile?.follower?.length || 0}
               </span>{" "}
               Followers{" "}
             </p>
             <p>
               {" "}
               <span className="  cursor-pointer text-lg font-semibold ">
-                {profile.following.length}
+                {profile?.following?.length ||0}
               </span>{" "}
               Following{" "}
             </p>
