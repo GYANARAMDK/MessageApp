@@ -37,7 +37,7 @@ export default function EditProfile() {
     formDataobj.append("profilepicture", formData.profilepicture);
     try {
       const response = await axios.patch(
-        "http://localhost:3000/api/v1/user/profile/edit",
+        "https://instaclone-1-187b.onrender.com/api/v1/user/profile/edit",
         formDataobj,
         {
           headers: {

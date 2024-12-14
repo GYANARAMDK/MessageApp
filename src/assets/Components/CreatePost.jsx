@@ -31,7 +31,7 @@ export default function CreatePost({ openpost, setopenpost }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/post/addpost",
+        "https://instaclone-1-187b.onrender.com/api/v1/post/addpost",
         formData,
         {
           headers: {

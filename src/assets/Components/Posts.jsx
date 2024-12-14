@@ -26,7 +26,7 @@ export default function Posts() {
     const fetchpost = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/post/allpost",
+          "https://instaclone-1-187b.onrender.com/api/v1/post/allpost",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ export default function Posts() {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/post/${id}/${action}`,
+        `https://instaclone-1-187b.onrender.com/api/v1/post/${id}/${action}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -91,7 +91,7 @@ export default function Posts() {
   };
    const CommentHandle=async(id)=>{
         try {
-          const response= await axios.post(`http://localhost:3000/api/v1/post/${id}/comment/add`,{text},
+          const response= await axios.post(`https://instaclone-1-187b.onrender.com/api/v1/post/${id}/comment/add`,{text},
             {
 
               headers: {

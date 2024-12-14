@@ -24,7 +24,7 @@ export default function Login() {
     console.log(input);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/login",
+        "https://instaclone-1-187b.onrender.com/api/v1/user/login",
         {email:input.email,Password:input.password}
       );
       alert(response.data.message);

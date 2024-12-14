@@ -18,7 +18,7 @@ export default function Comments({ open, setOpen }) {
   const CommentHandle = async (id) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/v1/post/${id}/comment/add`,
+        `https://instaclone-1-187b.onrender.com/api/v1/post/${id}/comment/add`,
         { text },
         {
           headers: {

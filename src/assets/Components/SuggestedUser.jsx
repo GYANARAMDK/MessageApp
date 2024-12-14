@@ -14,7 +14,7 @@ export default function SuggestedUser() {
     const fetchuser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/user/suggested",
+          "https://instaclone-1-187b.onrender.com/api/v1/user/suggested",
           {
             headers: {
               Authorization: `Bearer ${token}`,

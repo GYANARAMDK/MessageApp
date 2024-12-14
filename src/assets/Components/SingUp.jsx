@@ -21,7 +21,7 @@ export default function SingUp() {
     console.log(input);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/register",
+        "https://instaclone-1-187b.onrender.com/api/v1/user/register",
         input
       );
       alert(response.data.message);

@@ -36,7 +36,7 @@ export default function LeftSideBar() {
   const Navigate=useNavigate()
   const LogoutHandle = async()=>{
     try {
-       const response=await axios.get('http://localhost:3000/api/v1/user/logout')
+       const response=await axios.get('https://instaclone-1-187b.onrender.com/api/v1/user/logout')
        if(response.status===200)
 
         alert(response.data.message)
