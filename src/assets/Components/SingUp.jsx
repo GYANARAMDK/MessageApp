@@ -5,6 +5,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function SingUp() {
+  const [isLoading, setIsLoading] = useState(false);
   const [input, setinput] = useState({
     name: "",
     email: "",
@@ -16,22 +17,33 @@ export default function SingUp() {
     const { name, value } = e.target;
     setinput({ ...input, [name]: value });
   };
+
   const SignUpHandle = async (e) => {
     e.preventDefault();
     console.log(input);
     try {
+      setIsLoading(true)
       const response = await axios.post(
         "https://instaclone-1-187b.onrender.com/api/v1/user/register",
         input
       );
       alert(response.data.message);
+      if(response.status===201)
+      {
+        input.name=''
+        input.email=''
+        input.password=''
+      }
     } catch (error) {
         console.log(error)
       if (error.response) {
         alert(error.response.data.message);
       }
+    } finally{
+      setIsLoading(false)
     }
   };
+
   return (
     <div className="flex items-center justify-center  w-full mt-5 h-screen">
       <form
@@ -84,8 +96,12 @@ export default function SingUp() {
           className="bg-blue-400 hover:bg-blue-500 rounded h-8"
           type="submit "
         >
-          {" "}
-          create account
+         {isLoading ? (
+          <div className="flex justify-center items-center ">
+            <div className="animate-spin border-4 border-blue-400 border-t-transparent bg-opacity-50  rounded-full w-6 h-6"></div>
+            <span className="ml-2">account creating...</span>
+          </div>
+        ) :'Create New Account'} 
         </button>
         <span className="text-center">Already have an account? <NavLink to='/Login' className='underline' >login</NavLink> </span>
       </form>
