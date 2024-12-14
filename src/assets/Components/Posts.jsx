@@ -16,14 +16,17 @@ import { NavLink } from "react-router-dom";
 export default function Posts() {
   const [text, settext] = useState("");
   const [open, setOpen] = useState(false);
+
+  const Dispatch = useDispatch();
   const token = useSelector(state=>state.Outh.token)
   const posts = useSelector((state) => state.Post.post);
-  // const user=useSelector(state=>state.Outh.user)
   const user = useSelector((state) => state.Outh.user);
+
   const [like, setlike] = useState();
-  const Dispatch = useDispatch();
+  
   useEffect(() => {
     const fetchpost = async () => {
+      console.log(token)
       try {
         const response = await axios.get(
           "https://instaclone-1-187b.onrender.com/api/v1/post/allpost",

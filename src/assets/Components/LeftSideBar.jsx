@@ -43,6 +43,7 @@ export default function LeftSideBar() {
       if (response.status === 200) alert(response.data.message);
       Dispatch(setUser(null));
       Dispatch(setusertoken(null));
+      Dispatch(setUser({}))
       Navigate("/Login");
     } catch (error) {
       console.log("Logout Error:", error);
@@ -62,7 +63,7 @@ export default function LeftSideBar() {
         break;
       case "Profile":
         if (user?.id) {
-          Navigate(`/Profile/${user.id}`);
+          Navigate(`/Profile/${user._id}`);
         } else {
           alert("User not logged in!");
         }

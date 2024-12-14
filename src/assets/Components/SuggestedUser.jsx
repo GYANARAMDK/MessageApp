@@ -22,7 +22,6 @@ export default function SuggestedUser() {
             withCredentials: true,
           }
         );
-       
         Dispatch(setsuggesteduser(response.data.suggestedusers));
       } catch (error) {
         console.log(error);
