@@ -30,6 +30,7 @@ function App() {
         }
       ],
     },
+    
     {
       path: "/SignUp",
       element: <SingUp />,
