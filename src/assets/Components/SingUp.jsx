@@ -2,9 +2,10 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function SingUp() {
+  const navigate=useNavigate()
   const [isLoading, setIsLoading] = useState(false);
   const [input, setinput] = useState({
     name: "",
@@ -29,11 +30,7 @@ export default function SingUp() {
       );
       alert(response.data.message);
       if(response.status===201)
-      {
-        input.name=''
-        input.email=''
-        input.password=''
-      }
+      navigate('/Login')
     } catch (error) {
         console.log(error)
       if (error.response) {
