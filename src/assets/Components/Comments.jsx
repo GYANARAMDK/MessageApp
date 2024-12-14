@@ -7,10 +7,9 @@ import { setPost, setselectedpost } from "../../Redux/PostSlice";
 export default function Comments({ open, setOpen }) {
   const Dispatch = useDispatch();
   const token = useSelector((state) => state.Outh.token);
-  //  if (!open) return null; // Render nothing if open is false
-  const [text, settext] = useState("");
   const post = useSelector((state) => state.Post.post);
   const selectedpost = useSelector((state) => state.Post.selectedpost);
+  const [text, settext] = useState("");
   const ChangeEventHandle = (e) => {
     e.preventDefault();
     settext(e.target.value);

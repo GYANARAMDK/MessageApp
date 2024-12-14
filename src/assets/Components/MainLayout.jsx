@@ -8,14 +8,14 @@ export default function MainLayout() {
     const Navigate=useNavigate()
     const token=useSelector(state=>state.Outh.token)
     if(!token)
-      Navigate('/SignUp')
+      Navigate('/Login')
   return (
     <div className="flex h-screen overflow-hidden">
       <div className="w-1/4 bg-gray-200 h-full">
         <LeftSideBar />
       </div>
       <div className="flex-grow overflow-y-auto">
-        <Outlet />
+        {/* <Outlet />  */}
       </div>
     </div>
   )
