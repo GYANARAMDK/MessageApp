@@ -18,7 +18,7 @@ export default function MainLayout() {
         <LeftSideBar />
       </div>
       <div className="flex-grow overflow-y-auto">
-        {/* <Outlet />  */}
+        <Outlet /> 
       </div>
     </div>
   )
