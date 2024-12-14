@@ -3,12 +3,15 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import LeftSideBar from "./LeftSideBar";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function MainLayout() {
     const Navigate=useNavigate()
     const token=useSelector(state=>state.Outh.token)
-    if(!token)
-      Navigate('/Login')
+    useEffect(()=>{
+      if(!token)
+        Navigate('/Login')
+    },[token])
   return (
     <div className="flex h-screen overflow-hidden">
       <div className="w-1/4 bg-gray-200 h-full">
