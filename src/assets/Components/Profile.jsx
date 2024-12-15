@@ -146,7 +146,7 @@ export default function Profile() {
         </div>
         <hr className="m-4" />
         <div className="grid grid-cols-3">
-          {displayedpost.map((post) => {
+          {displayedpost?.map((post) => {
             return (
               <div key={post._id} className="">
                 <img
