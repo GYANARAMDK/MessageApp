@@ -18,8 +18,10 @@ export default function Profile() {
 
   const [activetab, setactivetab] = useState("Posts");
   const displayedpost = activetab === "Posts" ? profile.post : profile.bookmark;
-
-  const isfoolowing = true;
+  const [refresh,setrefresh]= useState(false)
+  const [isfollow, setisfollow] = useState(
+    profile?.follower?.includes(user._id)
+  );
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -41,10 +43,35 @@ export default function Profile() {
       }
     };
     fetchdata();
-  }, [userid]);
+  }, [userid,token,Dispatch,refresh]);
 
   const tabhandle = (texttype) => {
     setactivetab(texttype);
+  };
+  const FollowUnfollowHandle = async () => {
+    const id = profile._id;
+
+    try {
+      const response = await axios.post(
+        `https://instaclone-1-187b.onrender.com/api/v1/user/follow/${id}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
+      alert(response.data.message);
+      if (response.status === 201) {
+               setrefresh(!refresh)
+               setisfollow(!isfollow);
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.response) alert(error.response.data.message);
+    }
   };
   return (
     <div className="flex  flex-col  w-full  mt-4 p-4">
@@ -75,10 +102,13 @@ export default function Profile() {
               </>
             ) : (
               <>
-                <button className="px-1 rounded  font-semibold cursor-pointer text-lg bg-[#79b8e2]  hover:bg-[#5397c5] ">
-                  {isfoolowing ? "unfollow" : "follow"}
+                <button
+                  className="px-1 rounded  font-semibold cursor-pointer text-lg bg-[#79b8e2]  hover:bg-[#5397c5] "
+                  onClick={FollowUnfollowHandle}
+                >
+                  {isfollow ? "unfollow" : "follow"}
                 </button>
-                {isfoolowing && (
+                {isfollow && (
                   <button className="px-1 rounded font-semibold cursor-pointer text-lg bg-[#6cb0de]  hover:bg-[#5397c5]">
                     message
                   </button>
@@ -104,7 +134,7 @@ export default function Profile() {
             <p>
               {" "}
               <span className="  cursor-pointer text-lg font-semibold ">
-                {profile?.following?.length ||0}
+                {profile?.following?.length || 0}
               </span>{" "}
               Following{" "}
             </p>
