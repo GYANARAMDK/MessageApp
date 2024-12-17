@@ -7,11 +7,15 @@ import ChatMessage from "./ChatMessage";
 
 export default function ChatPage() {
   const onlineuser = useSelector((state) => state.Socketio.onlineuser);
-  console.log(onlineuser);
+  
   const user = useSelector((state) => state.Outh.user);
+  console.log("heelo")
+  console.log(onlineuser);
+  console.log(user)
+  console.log('hello')
   const Dispatch = useDispatch();
   const selecteduser = useSelector((state) => state.Outh.selecteduser);
-  console.log(user);
+  // console.log(user);
   return (
     <div className="flex h-screen ">
       <div className=" mt-4 flex  flex-col   mx-2 px-2   ">

@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     let socketio = null;
     if (user) {
-      socketio = io("http://localhost:3000", {
+      socketio = io(["http://localhost:3000", 'https://message-app-virid.vercel.app',], {
         query: { userid: user?._id },
         transports: ["websocket"],
       });
