@@ -70,6 +70,9 @@ export default function LeftSideBar() {
       case "Home":
         Navigate(`/`);
         break;
+        case "Message":
+        Navigate(`/Chatpage`);
+        break;
       default:
         console.log("Unknown sidebar action:", texttype);
     }

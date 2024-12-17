@@ -22,7 +22,7 @@ function App() {
         query: { userid: user?._id },
         transports: ["websocket"],
       });
-      Dispatch(setsoket(socketio));
+      Dispatch(setsoket(socketio.id));
       socketio.on("getonlineusers", (onlineusers) => {
         Dispatch(setonlineuser(onlineusers));
         console.log(onlineusers);
@@ -35,7 +35,7 @@ function App() {
       socket.close();
       Dispatch(setsoket(null));
     }
-  }, [user]);
+  }, [user,socket,Dispatch]);
   const BroswerRouter = createBrowserRouter([
     {
       path: "/",
