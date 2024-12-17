@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     let socketio = null;
     if (user) {
-      socketio = io(["http://localhost:3000", 'https://instaclone-1-187b.onrender.com/',], {
+      socketio = io(["http://localhost:3000", "https://instaclone-1-187b.onrender.com/"], {
         query: { userid: user?._id },
         transports: ["websocket"],
       });
