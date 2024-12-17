@@ -7,6 +7,7 @@ import SocketioSlice from './SocketSlice'
 const persistConfig = {
     key: 'root', // Key for storage
     storage, // Use localStorage for persistence
+    blacklist: ['Socketio'],
   };
   const rootreducer= combineReducers({
     Outh:OuthSlice,
@@ -17,8 +18,15 @@ const persistConfig = {
 
 const Store= configureStore({
     reducer: persistedReducer,
+    middleware:(getDefaultMiddleware)=>
+      getDefaultMiddleware({
+        serializableCheck:{
+          ignoredPaths: ['Socketio.socket'],
+          ignoredActions: ["Socketio/setsoket"],
+        },
+      }),
     
-})
+});
 const persistor = persistStore(Store);
 
 export  {Store,persistor};

@@ -10,19 +10,19 @@ import ChatPage from "./assets/Components/ChatPage";
 import { io } from "socket.io-client";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setonlineuser, setsoket } from "./Redux/SocketSlice";
+import { clearsoket, setonlineuser, setsoket } from "./Redux/SocketSlice";
 function App() {
   const Dispatch = useDispatch();
   const socket= useSelector(state=>state.Socketio.socket)
   const user = useSelector((state) => state.Outh.user);
   useEffect(() => {
-    let socketio = null;
+    let socketio = null;             // "https://instaclone-1-187b.onrender.com/"
     if (user) {
-      socketio = io(["http://localhost:3000", "https://instaclone-1-187b.onrender.com/"], {
+      socketio = io("http://localhost:3000", {
         query: { userid: user?._id },
         transports: ["websocket"],
       });
-      Dispatch(setsoket(socketio.id));
+      Dispatch(setsoket(socketio));
       socketio.on("getonlineusers", (onlineusers) => {
         Dispatch(setonlineuser(onlineusers));
         console.log(onlineusers);
@@ -31,11 +31,11 @@ function App() {
         socketio.close();
         Dispatch(setsoket(null));
       };
-    } else if (socketio) {
+    } else if (socket) {
       socket.close();
-      Dispatch(setsoket(null));
+      Dispatch(clearsoket());
     }
-  }, [user,socket,Dispatch]);
+  }, [user,Dispatch]);
   const BroswerRouter = createBrowserRouter([
     {
       path: "/",

@@ -13,9 +13,12 @@ const SocketioSlice= createSlice(
            },
            setonlineuser:(state,action)=>{
             state.onlineuser=action.payload
+           },
+           clearsoket: (state)=>{
+            state.socket=null
            }
         }
     }
 )
-export const {setsoket,setonlineuser} = SocketioSlice.actions;
+export const {setsoket,setonlineuser,clearsoket} = SocketioSlice.actions;
 export default SocketioSlice.reducer;
