@@ -7,7 +7,8 @@ const OuthSlice= createSlice(
             user:null,
             suggesteduser:[],
             profile:null,
-            token:null
+            token:null,
+            selecteduser:null
         },
         reducers:{
             setUser: (state,action)=>{
@@ -21,9 +22,12 @@ const OuthSlice= createSlice(
             },
             setusertoken:(state,action)=>{
                 state.token=action.payload
+            },
+            setselecteduser: (state,action)=>{
+                state.selecteduser=action.payload;
             }
         }
     }
 )
-export const {setUser, setsuggesteduser,setprofile,setusertoken} = OuthSlice.actions;
+export const {setUser, setsuggesteduser,setprofile,setusertoken,setselecteduser} = OuthSlice.actions;
 export default OuthSlice.reducer;

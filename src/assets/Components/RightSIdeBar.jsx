@@ -7,7 +7,7 @@ import SuggestedUser from "./SuggestedUser";
 export default function RightSIdeBar() {
   const user = useSelector((state) => state.Outh.user); 
   return (
-    <div className="flex flex-col px-4  mt-4">
+    <div className="flex flex-col px-4  mt-4 h-[90%] border-2 broder-red-300">
       <div className="flex items-center ">
         <NavLink to={`/profile/${user._id}`}>
           <img
@@ -21,6 +21,7 @@ export default function RightSIdeBar() {
           <p className="text-sm text-gray-500"> </p>
         </div>
       </div>
+      
       <SuggestedUser/>
       
     </div>

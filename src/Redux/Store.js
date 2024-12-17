@@ -3,13 +3,15 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import OuthSlice from './OuthSlice'
 import PostSlice from './PostSlice';
+import SocketioSlice from './SocketSlice'
 const persistConfig = {
     key: 'root', // Key for storage
     storage, // Use localStorage for persistence
   };
   const rootreducer= combineReducers({
     Outh:OuthSlice,
-    Post:PostSlice
+    Post:PostSlice,
+    Socketio:SocketioSlice
   })
   const persistedReducer = persistReducer(persistConfig, rootreducer);
 
