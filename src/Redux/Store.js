@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import OuthSlice from './OuthSlice'
 import PostSlice from './PostSlice';
 import SocketioSlice from './SocketSlice'
+import  RealTimeNotification  from './RealTImeNotificationSlice';
 const persistConfig = {
     key: 'root', // Key for storage
     storage, // Use localStorage for persistence
@@ -12,7 +13,8 @@ const persistConfig = {
   const rootreducer= combineReducers({
     Outh:OuthSlice,
     Post:PostSlice,
-    Socketio:SocketioSlice
+    Socketio:SocketioSlice,
+    RealTimeNotification:RealTimeNotification
   })
   const persistedReducer = persistReducer(persistConfig, rootreducer);
 

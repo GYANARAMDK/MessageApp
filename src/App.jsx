@@ -11,6 +11,7 @@ import { io } from "socket.io-client";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearsoket, setonlineuser, setsoket } from "./Redux/SocketSlice";
+import { setRealTimeNotification } from "./Redux/RealTImeNotificationSlice";
 function App() {
   const Dispatch = useDispatch();
   const socket= useSelector(state=>state.Socketio.socket)
@@ -27,6 +28,9 @@ function App() {
         Dispatch(setonlineuser(onlineusers));
         console.log(onlineusers);
       });
+      socketio.on("notification",(Notification)=>{
+        Dispatch(setRealTimeNotification(Notification))
+      })
       return () => {
         socketio.close();
         Dispatch(setsoket(null));

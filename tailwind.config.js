@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { plugin as shadcnPlugin } from '@shadcn/ui'
 export default {
   content: [
     "./index.html",
@@ -12,5 +13,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [shadcnPlugin()],
 }
