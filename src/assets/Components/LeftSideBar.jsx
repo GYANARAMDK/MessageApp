@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Popover, PopoverTrigger, PopoverContent } from "@shadcn/ui";
+// import { Popover, PopoverTrigger, PopoverContent } from "@shadcn/ui";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, setusertoken } from "../../Redux/OuthSlice";
@@ -102,7 +102,7 @@ export default function LeftSideBar() {
               }}
             >
               {item.icon}
-              {
+              {/* {
               item.text===Notification && likeNotification.length>0 && 
               // <Popover>
               //          <PopoverTrigger asChild >
@@ -126,7 +126,7 @@ export default function LeftSideBar() {
               //          </PopoverContent>
               // </Popover>
                
-              }
+              } */}
               {item.text}
             </div>
           );

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
-import { setprofile } from "../../Redux/OuthSlice";
+import { setprofile, setUser } from "../../Redux/OuthSlice";
 import { FaCog } from "react-icons/fa";
 export default function Profile() {
   const token = useSelector((state) => state.Outh.token);
@@ -67,6 +67,8 @@ export default function Profile() {
       if (response.status === 201) {
                setrefresh(!refresh)
                setisfollow(!isfollow);
+               Dispatch(setUser(response.data.userthatfollow))
+               Dispatch(setprofile(response.data.userthatfollowed))
       }
     } catch (error) {
       console.log(error);
