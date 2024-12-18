@@ -74,14 +74,14 @@ export default function EditProfile() {
               src={
                 formData.profilepicture
                   ? URL.createObjectURL(formData.profilepicture)
-                  : user.profilepicture
+                  : user?.profilepicture
               }
               alt="profile picture"
               className=" rounded-full w-auto m-2 aspect-square  object-cover max-h-12 "
             />
 
             <div>
-              <h1 className="font-bold text-sm">{user.name}</h1>
+              <h1 className="font-bold text-sm">{user?.name}</h1>
               <span>{formData.bio ? formData.bio : "bio here... "} </span>
             </div>
           </div>

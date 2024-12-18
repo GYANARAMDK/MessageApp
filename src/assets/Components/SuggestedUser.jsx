@@ -39,7 +39,7 @@ export default function SuggestedUser() {
         <span className="font-medium cursor-pointer ">See All</span>
       </div>
       <div className="overflow-auto h-[80%] my-2 px-4 ">
-        {suggesteduser.map((user) => {
+        {suggesteduser?.map((user) => {
           return (
             <div key={user._id} className="mt-8 overflow-y-auto  ">
               <div className="flex items-center justify-between">

@@ -35,8 +35,8 @@ export default function Comments({ open, setOpen }) {
         };
 
         Dispatch(setselectedpost(updatedselectedpost));
-        const updatedposts = post.map((post) => {
-          if (post._id === selectedpost._id) return updatedselectedpost;
+        const updatedposts = post?.map((post) => {
+          if (post?._id === selectedpost?._id) return updatedselectedpost;
           return post;
         });
         Dispatch(setPost(updatedposts));
@@ -59,7 +59,7 @@ export default function Comments({ open, setOpen }) {
             onClick={(e) => e.stopPropagation()} // Prevent background click from closing modal
           >
             <img
-              src={selectedpost.image}
+              src={selectedpost?.image}
               alt="Post"
               className="w-1/2 rounded object-cover"
             />
@@ -67,19 +67,19 @@ export default function Comments({ open, setOpen }) {
               <h1 className="font-semibold text-xl">Comments</h1>
               <hr />
               <div className="h-3/4 overflow-y-auto">
-                {selectedpost.comments.map((comment) => (
-                  <div key={comment._id} className="flex  mt-3 ">
+                {selectedpost?.comments?.map((comment) => (
+                  <div key={comment?._id} className="flex  mt-3 ">
                     {/* Avatar */}
-                    <NavLink to={`/profile/${comment.author._id}`}>
+                    <NavLink to={`/profile/${comment?.author?._id}`}>
                     <img
-                      src={comment.author.profilepicture}
+                      src={comment?.author?.profilepicture}
                       alt="Profile"
                       className="w-12 h-12 rounded-full object-cover mr-4"
                     />
                      </NavLink>
                     <div>
                       <span>
-                        <p className="font-semibold ">{comment.author.name} </p>
+                        <p className="font-semibold ">{comment?.author?.name} </p>
                         <p className="font-small "> {comment.text}</p>
                       </span>
                     </div>
@@ -100,7 +100,7 @@ export default function Comments({ open, setOpen }) {
                 <button className="ml-2 bg-blue-500 text-white p-2  rounded-full hover:bg-blue-600">
                   <FaPaperPlane
                     onClick={() => {
-                      CommentHandle(selectedpost._id);
+                      CommentHandle(selectedpost?._id);
                     }}
                   />
                 </button>

@@ -42,7 +42,7 @@ export default function ChatPage() {
 
   const sendmessagehandler = async () => {
     try {
-      console.log(message);
+      
 
       const response = await axios.post(
         `https://instaclone-1-187b.onrender.com/api/v1/message/send/${selecteduser?._id}`,
@@ -75,34 +75,34 @@ export default function ChatPage() {
       <div className=" mt-4 flex  flex-col   mx-2 px-2   ">
         <section className="flex ">
           <img
-            src={user.profilepicture}
+            src={user?.profilepicture}
             alt="Profile"
             className="w-12 h-12 rounded-full object-cover  "
           />
 
-          <h1 className="font-bold text-lg p-2"> @{user.name} </h1>
+          <h1 className="font-bold text-lg p-2"> @{user?.name} </h1>
         </section>
         <hr className="m-4 bg-gray-300" />
         <div className="overflow-y-auto h-[80vh] flex flex-col gap-2 ">
-          {user.following?.map((user) => {
+          {user?.following?.map((user) => {
             const isonline = onlineuser?.includes(user?._id);
             return (
               <div
-                key={user._id}
+                key={user?._id}
                 className="flex items-center  gap-2 cursor-pointer "
                 onClick={() => {
                   Dispatch(setselecteduser(user));
                 }}
               >
                 <img
-                  src={user.profilepicture}
+                  src={user?.profilepicture}
                   alt="Profile"
                   className="w-12 h-12 rounded-full object-cover  "
                 />
 
                 <div>
                   <div className="flex flex-col justify-center">
-                    <span className="font-semibold">{user.name}</span>
+                    <span className="font-semibold">{user?.name}</span>
 
                     <span
                       className={`text-sm ${
@@ -123,7 +123,7 @@ export default function ChatPage() {
         {selecteduser && (
           <>
             <section className="flex  mt-4 items-center gap-3 border rounded border-gray-400 mx-2 px-2 py-2  sticky">
-              <NavLink to={`/Profile/${selecteduser._id}`}>
+              <NavLink to={`/Profile/${selecteduser?._id}`}>
                 <img
                   src={selecteduser?.profilepicture}
                   alt="Profile"

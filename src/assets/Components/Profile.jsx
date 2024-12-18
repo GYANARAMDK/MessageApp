@@ -49,7 +49,7 @@ export default function Profile() {
     setactivetab(texttype);
   };
   const FollowUnfollowHandle = async () => {
-    const id = profile._id;
+    const id = profile?._id;
 
     try {
       const response = await axios.post(
@@ -78,14 +78,14 @@ export default function Profile() {
       <div className="flex gap-16  ">
         <div>
           <img
-            src={profile.profilepicture}
+            src={profile?.profilepicture}
             alt=""
             className=" rounded-full w-auto m-2 aspect-square  object-cover max-h-32"
           />
         </div>
         <div className="flex flex-col  gap-4 ">
           <div className="flex items-center gap-4 ">
-            <p className="text-xl font-bold">{profile.name}</p>
+            <p className="text-xl font-bold">{profile?.name}</p>
             {isloggedinuser ? (
               <>
                 <NavLink to="/account/edit">
@@ -143,7 +143,7 @@ export default function Profile() {
             <p className="cursor-pointer text-sm"> @username</p>
             <p className="cursor-pointer text-normal p-2">
               {" "}
-              {profile.bio || "bio here... "}{" "}
+              {profile?.bio || "bio here... "}{" "}
             </p>
           </div>
         </div>
@@ -178,9 +178,9 @@ export default function Profile() {
         <div className="grid grid-cols-3">
           {displayedpost?.map((post) => {
             return (
-              <div key={post._id} className="">
+              <div key={post?._id} className="">
                 <img
-                  src={post.image}
+                  src={post?.image}
                   alt="post image"
                   className={`rounded-sm w-full m-2 aspect-square  object-cover `}
                 />

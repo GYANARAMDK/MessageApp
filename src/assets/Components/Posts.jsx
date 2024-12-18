@@ -52,7 +52,7 @@ export default function Posts() {
   };
 
   const likeDislikeHandle = async (id) => {
-    const targetpost = posts.find((post) => post._id === id);
+    const targetpost = posts?.find((post) => post._id === id);
     let liked = targetpost ? targetpost.likes.includes(user._id) : false;
 
     const action = liked ? "dislike" : "like";
@@ -122,7 +122,7 @@ export default function Posts() {
   return (
     <>
       {posts &&
-        posts.map((item) => {
+        posts?.map((item) => {
           return (
             <div
               className="max-w-xl mx-auto bg-white border rounded-lg shadow-lg my-4 ml-4  "

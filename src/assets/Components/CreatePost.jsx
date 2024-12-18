@@ -13,7 +13,7 @@ export default function CreatePost({ openpost, setopenpost }) {
   const [preview, setpreview] = useState();
   const [caption, setcaption] = useState();
   const onfilechangeHandle = () => {
-    const selectedfile = Imageref.current.files[0];
+    const selectedfile = Imageref?.current?.files[0];
     setfile(selectedfile);
     if (selectedfile) {
       setpreview(URL.createObjectURL(selectedfile));
