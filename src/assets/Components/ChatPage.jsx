@@ -56,10 +56,10 @@ export default function ChatPage() {
         }
       );
       if (response.status === 201) {
-        alert("ho gya success or failure");
+        // alert("ho gya success or failure");
         Dispatch(setaddmessage(response.data.newmessage));
-        console.log(response.data.newmessage.message);
-        console.log(response.data.newmessage)
+        // console.log(response.data.newmessage.message);
+        // console.log(response.data.newmessage)
         setmessage("");
       }
     } catch (error) {
