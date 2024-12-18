@@ -35,7 +35,7 @@ function App() {
       socket.close();
       Dispatch(clearsoket());
     }
-  }, [user,Dispatch]);
+  }, [user,]);
   const BroswerRouter = createBrowserRouter([
     {
       path: "/",

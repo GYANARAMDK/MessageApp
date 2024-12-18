@@ -21,8 +21,9 @@ const Store= configureStore({
     middleware:(getDefaultMiddleware)=>
       getDefaultMiddleware({
         serializableCheck:{
-          ignoredPaths: ['Socketio.socket'],
-          ignoredActions: ["Socketio/setsoket"],
+          ignoredPaths: ['Socketio.socket'], // you can ignore state paths that might hold non-serializable data
+          ignoredActions: ['Socketio/setsoket'], // actions involving non-serializable data
+       
         },
       }),
     
