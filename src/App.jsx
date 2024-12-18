@@ -13,6 +13,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearsoket, setonlineuser, setsoket } from "./Redux/SocketSlice";
 import { setRealTimeNotification } from "./Redux/RealTImeNotificationSlice";
 function App() {
+  const likeNotification = useSelector(
+    (state) => state.RealTimeNotification.likeNotification
+  );
   const Dispatch = useDispatch();
   const socket= useSelector(state=>state.Socketio.socket)
   const user = useSelector((state) => state.Outh.user);
@@ -40,7 +43,7 @@ function App() {
       socket.close();
       Dispatch(clearsoket());
     }
-  }, [user,]);
+  }, [user,likeNotification]);
   const BroswerRouter = createBrowserRouter([
     {
       path: "/",
