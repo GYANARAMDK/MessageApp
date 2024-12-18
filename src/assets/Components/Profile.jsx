@@ -67,8 +67,7 @@ export default function Profile() {
       if (response.status === 201) {
                setrefresh(!refresh)
                setisfollow(!isfollow);
-               Dispatch(setUser(response.data.userthatfollow))
-               Dispatch(setprofile(response.data.userthatfollowed))
+              
       }
     } catch (error) {
       console.log(error);
