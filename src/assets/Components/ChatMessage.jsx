@@ -10,18 +10,18 @@ export default function ChatMessage() {
   const Dispatch = useDispatch();
   const messages = useSelector((state) => state.Socketio.messages);
   const user = useSelector((state) => state.Outh.user);
-
+  
   useEffect(() => {
     if (socket) {
       socket?.on("newMessage", (newMessage) => {
-        Dispatch(setmessages((messages) => [...messages, newMessage]));
+        Dispatch(setmessages([...messages, newMessage]));
         console.log(newMessage);
       });
       return () => {
         socket?.off("newMessage");
       };
     }
-  }, [socket]);
+  }, [socket,messages]);
 
   return (
     <div className="overflow-y-auto p-4 flex-1">

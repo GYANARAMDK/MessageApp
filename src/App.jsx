@@ -16,9 +16,9 @@ function App() {
   const socket= useSelector(state=>state.Socketio.socket)
   const user = useSelector((state) => state.Outh.user);
   useEffect(() => {
-    let socketio = null;             // "https://instaclone-1-187b.onrender.com/"
+    let socketio = null;             // "https://instaclone-1-187b.onrender.com/"  "http://localhost:3000"
     if (user) {
-      socketio = io("http://localhost:3000", {
+      socketio = io("https://instaclone-1-187b.onrender.com/", {
         query: { userid: user?._id },
         transports: ["websocket"],
       });
