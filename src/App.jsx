@@ -29,6 +29,7 @@ function App() {
         console.log(onlineusers);
       });
       socketio.on("notification",(Notification)=>{
+        console.log("how are you")
         Dispatch(setRealTimeNotification(Notification))
       })
       return () => {
