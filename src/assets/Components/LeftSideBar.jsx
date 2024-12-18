@@ -104,27 +104,28 @@ export default function LeftSideBar() {
               {item.icon}
               {
               item.text===Notification && likeNotification.length>0 && 
-              <Popover>
-                       <PopoverTrigger asChild >
-                           <button       size='icon' className="rounded-full h-w-5 absolute bottom-6 left-6 " >{likeNotification.length} </button>
+              // <Popover>
+              //          <PopoverTrigger asChild >
+              //              <button       size='icon' className="rounded-full h-w-5 absolute bottom-6 left-6 " >{likeNotification.length} </button>
                             
-                       </PopoverTrigger>
-                       <PopoverContent>
-                        <div>
-                          {likeNotification.length===0 ? (<p>No Notification</p>):
-                             (likeNotification.map(Notification=>{
-                              return(
-                                <div key={Notification.userId}>
-                                      <img src={Notification?.userdetails?.profilepicture} alt="" />
+              //          </PopoverTrigger>
+              //          <PopoverContent>
+              //           <div>
+              //             {likeNotification.length===0 ? (<p>No Notification</p>):
+              //                (likeNotification.map(Notification=>{
+              //                 return(
+              //                   <div key={Notification.userId}>
+              //                         <img src={Notification?.userdetails?.profilepicture} alt="" />
                                      
-                                      <p className="text-sm"> <span className="font-bold">{Notification.userdetails.name}</span>{`${Notification.type } your post`} </p>
-                                  </div>
-                              )
-                             }))
-                          }
-                        </div>
-                       </PopoverContent>
-              </Popover>
+              //                         <p className="text-sm"> <span className="font-bold">{Notification.userdetails.name}</span>{`${Notification.type } your post`} </p>
+              //                     </div>
+              //                 )
+              //                }))
+              //             }
+              //           </div>
+              //          </PopoverContent>
+              // </Popover>
+               
               }
               {item.text}
             </div>
