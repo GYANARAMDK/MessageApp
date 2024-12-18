@@ -3,7 +3,7 @@ import Home from "./assets/Components/Home";
 import MainLayout from "./assets/Components/MainLayout";
 import Login from "./assets/Components/Login";
 import SingUp from "./assets/Components/SingUp";
-import { createBrowserRouter, RouterProvider, useNavigate } from "react-router-dom";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Profile from "./assets/Components/Profile";
 import EditProfile from "./assets/Components/EditProfile";
 import ChatPage from "./assets/Components/ChatPage";
@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearsoket, setonlineuser, setsoket } from "./Redux/SocketSlice";
 import { setRealTimeNotification } from "./Redux/RealTImeNotificationSlice";
 function App() {
-  const Navigate = useNavigate();
+  
   const token = useSelector((state) => state.Outh.token);
   
   const likeNotification = useSelector(
@@ -23,7 +23,7 @@ function App() {
   const socket= useSelector(state=>state.Socketio.socket)
   const user = useSelector((state) => state.Outh.user);
   useEffect(() => {
-    if (!token) Navigate("/Login");
+    
     let socketio = null;             // "https://instaclone-1-187b.onrender.com/"  "http://localhost:3000"
     if (user) {
       socketio = io("https://instaclone-1-187b.onrender.com/", {
@@ -47,7 +47,7 @@ function App() {
       socket.close();
       Dispatch(clearsoket());
     }
-  }, [user,likeNotification,token,Navigate]);
+  }, [user,likeNotification,token]);
   const BroswerRouter = createBrowserRouter([
     {
       path: "/",
